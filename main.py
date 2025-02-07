@@ -79,7 +79,7 @@ def fetch_tweet_text(tweet_id):
         return tweet_data["data"]["text"]
     elif response.status_code == 429:
         print("⚠️ Rate limit aşıldı! 15 dakika bekleniyor...")
-        time.sleep(120)  # 2 dakika bekle
+        time.sleep(900)  # 15 dakika bekle
         return None
     else:
         print(f"Hata Kodu: {response.status_code}")
@@ -102,4 +102,4 @@ def send_whatsapp_message(tweet_text):
 if __name__ == "__main__":
     while True:
         get_latest_tweet()
-        time.sleep(900)  # 1 dakika bekle
+        time.sleep(900)  # 15 dakika bekle
